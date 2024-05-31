@@ -37,7 +37,7 @@ RegisterHook("/Game/Blueprints/Environment/Systems/Abiotic_AIDirector.Abiotic_AI
 end)
 
 
---WIP: This will be used to create Leyak Essence for the player.
+--WIP: Still kinda WIP
 RegisterKeyBind(Key.F4, function()
     print("[LeyakRemover] F4 pressed\n")
 
