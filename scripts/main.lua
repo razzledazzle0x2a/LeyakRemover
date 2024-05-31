@@ -36,12 +36,29 @@ RegisterHook("/Game/Blueprints/Environment/Systems/Abiotic_AIDirector.Abiotic_AI
     end)
 end)
 
+--[[
 --WIP: This will be used to create Leyak Essence for the player.
 RegisterKeyBind(Key.F4, function()
     print("[LeyakRemover] F4 pressed\n")
+
+    local playerController = FindFirstOf("Abiotic_PlayerController_C")
+    local playerChar = playerController.MyPlayerCharacter
     
-    local playerChar = FindFirstOf("Abiotic_PlayerCharacter_C")
+    local testEssence = StaticFindObject("/Game/Blueprints/Environment/Nodes/Resource_Micronode_LeyakEssence.Default__Resource_Micronode_LeyakEssence_C")
 
-    sendChatMessage("F4 pressed")
+    local essName = testEssence:GetItemNameText()
 
+    print("" .. essName:ToString())
+
+    print("" .. tostring(testEssence['Loot Is Generated?']))
+
+    playerChar:TryPickupItemAndFindBestSlotForIt(testEssence.DebrisRow, playerChar['Carryover Changeable Data'], false, 0)
+
+    sendChatMessage("Giving Leyak Essence to ".. playerChar:GetCharacterName():ToString())
 end)
+]]
+---@param ItemRow FDataTableRowHandle
+---@param ChangeableData FAbiotic_InventoryChangeableDataStruct
+---@param PickedUpEntireStack boolean
+---@param NumberOfItemsLeftOver int32
+---function AAbiotic_PlayerCharacter_C:TryPickupItemAndFindBestSlotForIt(ItemRow, ChangeableData, PickedUpEntireStack, NumberOfItemsLeftOver) end
