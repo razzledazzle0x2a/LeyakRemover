@@ -1,3 +1,5 @@
+THIS MOD HAS NOT BEEN TESTED IN MULTIPLAYER! USE IN MP AT YOUR OWN RISK!
+
 Installation instructions:
 
 1. Go to the UE4SS releases page here: https://github.com/UE4SS-RE/RE-UE4SS/releases.
