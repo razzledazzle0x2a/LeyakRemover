@@ -36,11 +36,26 @@ RegisterHook("/Game/Blueprints/Environment/Systems/Abiotic_AIDirector.Abiotic_AI
     end)
 end)
 
---RegisterKeyBind(Key.F4, function()
---    print("[LeyakRemover] F4 pressed\n")
---    
---    local playerChar = FindFirstOf("Abiotic_PlayerCharacter_C")
---
---    sendChatMessage("F4 pressed")
---
---end)
+
+--WIP: This will be used to create Leyak Essence for the player.
+RegisterKeyBind(Key.F4, function()
+    print("[LeyakRemover] F4 pressed\n")
+
+    local playerController = FindFirstOf("Abiotic_PlayerController_C")
+    local playerChar = playerController.MyPlayerCharacter
+
+    local playerHotbar = playerChar.CharacterHotbarInventory
+
+    local itemStruct = playerHotbar.CurrentInventory[1]
+    
+    local itemName = itemStruct.ItemDataTable_18_BF1052F141F66A976F4844AB2B13062B.RowName:ToString()
+    print("" .. itemName)
+
+    if string.match(itemName, "essence_leyak") then
+        playerController:Server_AddToItemStack(playerHotbar, 0, 1)
+        sendChatMessage("Giving Leyak Essence to ".. playerChar:GetCharacterName():ToString())
+    else
+        sendChatMessage("There is no Leyak Essence in the first hotbar slot.")
+    end
+
+end)
