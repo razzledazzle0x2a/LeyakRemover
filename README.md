@@ -10,3 +10,15 @@ Installation instructions:
 8. Whenever the Leyak spawns and/or despawns, a message will show in chat.
 9. You will need to press F2 each time you load in to the game.
 10. Enjoy!
+
+Mods folder:
+
+![Mods folder](https://i.imgur.com/WLVYmld.png)
+
+Mod installed:
+
+![Mod installed](https://i.imgur.com/5FD9aCT.png)
+
+Mod enabled:
+
+![Mod enabled](https://i.imgur.com/J3AaP3Z.png)
