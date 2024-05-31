@@ -36,29 +36,26 @@ RegisterHook("/Game/Blueprints/Environment/Systems/Abiotic_AIDirector.Abiotic_AI
     end)
 end)
 
---[[
+
 --WIP: This will be used to create Leyak Essence for the player.
 RegisterKeyBind(Key.F4, function()
     print("[LeyakRemover] F4 pressed\n")
 
     local playerController = FindFirstOf("Abiotic_PlayerController_C")
     local playerChar = playerController.MyPlayerCharacter
+
+    local playerHotbar = playerChar.CharacterHotbarInventory
+
+    local itemStruct = playerHotbar.CurrentInventory[1]
     
-    local testEssence = StaticFindObject("/Game/Blueprints/Environment/Nodes/Resource_Micronode_LeyakEssence.Default__Resource_Micronode_LeyakEssence_C")
+    local itemName = itemStruct.ItemDataTable_18_BF1052F141F66A976F4844AB2B13062B.RowName:ToString()
+    print("" .. itemName)
 
-    local essName = testEssence:GetItemNameText()
+    if string.match(itemName, "essence_leyak") then
+        playerController:Server_AddToItemStack(playerHotbar, 0, 1)
+        sendChatMessage("Giving Leyak Essence to ".. playerChar:GetCharacterName():ToString())
+    else
+        sendChatMessage("There is no Leyak Essence in the first hotbar slot.")
+    end
 
-    print("" .. essName:ToString())
-
-    print("" .. tostring(testEssence['Loot Is Generated?']))
-
-    playerChar:TryPickupItemAndFindBestSlotForIt(testEssence.DebrisRow, playerChar['Carryover Changeable Data'], false, 0)
-
-    sendChatMessage("Giving Leyak Essence to ".. playerChar:GetCharacterName():ToString())
 end)
-]]
----@param ItemRow FDataTableRowHandle
----@param ChangeableData FAbiotic_InventoryChangeableDataStruct
----@param PickedUpEntireStack boolean
----@param NumberOfItemsLeftOver int32
----function AAbiotic_PlayerCharacter_C:TryPickupItemAndFindBestSlotForIt(ItemRow, ChangeableData, PickedUpEntireStack, NumberOfItemsLeftOver) end
