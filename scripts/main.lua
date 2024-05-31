@@ -36,11 +36,12 @@ RegisterHook("/Game/Blueprints/Environment/Systems/Abiotic_AIDirector.Abiotic_AI
     end)
 end)
 
---RegisterKeyBind(Key.F4, function()
---    print("[LeyakRemover] F4 pressed\n")
---    
---    local playerChar = FindFirstOf("Abiotic_PlayerCharacter_C")
---
---    sendChatMessage("F4 pressed")
---
---end)
+--WIP: This will be used to create Leyak Essence for the player.
+RegisterKeyBind(Key.F4, function()
+    print("[LeyakRemover] F4 pressed\n")
+    
+    local playerChar = FindFirstOf("Abiotic_PlayerCharacter_C")
+
+    sendChatMessage("F4 pressed")
+
+end)
