@@ -1,11 +1,9 @@
-local UEHelpers = require("UEHelpers")
-
 print("[LeyakRemover] Mod loaded\n")
 
 local disableLeyak = false
-local playerController = FindFirstOf("Abiotic_PlayerController_C")
 
 function sendChatMessage(msg)
+    local playerController = FindFirstOf("Abiotic_PlayerController_C")
     playerController:Request_SendTextChatMessage(msg .. "\n")
 end
 
