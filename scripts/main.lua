@@ -9,20 +9,6 @@ function sendChatMessage(msg)
     playerController:Request_SendTextChatMessage(msg .. "\n")
 end
 
-RegisterKeyBind(Key.F2, function()
-    print("[LeyakRemover] F2 pressed\n")
-    disableLeyak = not disableLeyak
-
-    if disableLeyak then
-        sendChatMessage("Leyak Disabled!")
-    else
-        sendChatMessage("Leyak Enabled!")
-    end
-
-    print("[LeyakRemover] disableLeyak is now " .. tostring(disableLeyak))
-    
-end)
-
 RegisterHook("/Game/Blueprints/Environment/Systems/Abiotic_AIDirector.Abiotic_AIDirector_C:SpawnLeyak", function()
     ExecuteWithDelay(2000, function()
         print("[LeyakRemover] Leyak Spawned!\n")
@@ -36,6 +22,19 @@ RegisterHook("/Game/Blueprints/Environment/Systems/Abiotic_AIDirector.Abiotic_AI
     end)
 end)
 
+RegisterKeyBind(Key.F2, function()
+    print("[LeyakRemover] F2 pressed\n")
+    disableLeyak = not disableLeyak
+
+    if disableLeyak then
+        sendChatMessage("Leyak Disabled!")
+    else
+        sendChatMessage("Leyak Enabled!")
+    end
+
+    print("[LeyakRemover] disableLeyak is now " .. tostring(disableLeyak))
+    
+end)
 
 --WIP: Still kinda WIP
 RegisterKeyBind(Key.F4, function()
