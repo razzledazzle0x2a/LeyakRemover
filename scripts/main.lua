@@ -36,6 +36,7 @@ RegisterKeyBind(Key.F2, function()
     
 end)
 
+--[[
 --WIP: Still kinda WIP
 RegisterKeyBind(Key.F4, function()
     print("[LeyakRemover] F4 pressed\n")
@@ -58,3 +59,4 @@ RegisterKeyBind(Key.F4, function()
     end
 
 end)
+--]]
